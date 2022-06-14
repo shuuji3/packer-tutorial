@@ -17,4 +17,14 @@ build {
   sources = [
     "source.docker.ubuntu"
   ]
+
+  provisioner "shell" {
+    environment_vars = [
+      "MESSAGE=hello world"
+    ]
+    inline = [
+      "echo Adding file to Docker container",
+      "echo \"MESSAGE is $MESSAGE\" > message.txt"
+    ]
+  }
 }
